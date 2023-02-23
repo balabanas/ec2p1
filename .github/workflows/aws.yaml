@@ -39,7 +39,7 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }} 
       - name: List home directory
         run: |
-            ssh ec2 'cd /home/ubuntu/django-on-docker'
-            ssh ec2 'ls -la'
-            ssh ec2 'cd /home/ubuntu'
-            ssh ec2 'ls -la'
+            ssh ec2 'cd /home/ubuntu/django-on-docker && pwd'
+            #ssh ec2 'ls -la'
+            #ssh ec2 'cd /home/ubuntu'
+            #ssh ec2 'ls -la'
