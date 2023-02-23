@@ -39,7 +39,7 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }} 
       - name: List home directory
         run: |
-            scp requirements.txt ec2:/home/ubuntu/app1
+            scp -r . ec2:/home/ubuntu/ec2p1
             # ssh ec2 'cd /home/ubuntu/django-on-docker && pwd'
             # ssh ec2 'cd /home/ubuntu/app1 && ls'
             # ssh ec2 'pwd'
