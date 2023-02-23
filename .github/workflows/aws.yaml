@@ -19,3 +19,6 @@ jobs:
         working-directory: .
         run:
           zip -r deploy.zip . -x '*.git*'
+      - name: echo secret
+        run:
+           echo {{ secrets.$SSH_KEY }}
