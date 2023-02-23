@@ -10,3 +10,12 @@ jobs:
   deploy:
     needs: [ build ]
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      - name: Generate deployment package
+        working-directory: .
+        run:
+          zip -r deploy.zip . -x '*.git*'
