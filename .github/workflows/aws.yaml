@@ -40,6 +40,6 @@ jobs:
       - name: List home directory
         run: |
             ssh ec2 'cd /home/ubuntu/django-on-docker && pwd'
-            ssh ec2 'cd /home/ubuntu/app1'
-            ssh ec2 'ls'
+            ssh ec2 'cd /home/ubuntu/app1 && ls'
+            ssh ec2 'pwd'
             
