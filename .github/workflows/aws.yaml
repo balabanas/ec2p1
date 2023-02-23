@@ -39,7 +39,7 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }} 
       - name: List home directory
         run: |
-            scp -r $(pwd)/ec2p1 ec2:/home/ubuntu/ec2p1
+            scp -r $(pwd)/* ec2:/home/ubuntu/ec2p1
             ssh ec2 'cd /home/ubuntu/ec2p1 && ls'
             
             
