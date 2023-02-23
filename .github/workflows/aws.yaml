@@ -1,0 +1,12 @@
+name: Django project AWS CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+#  build:
+
+  deploy:
+    needs: [ build ]
+    runs-on: ubuntu-latest
