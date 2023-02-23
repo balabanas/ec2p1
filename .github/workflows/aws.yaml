@@ -38,6 +38,6 @@ jobs:
           SSH_USER: ${{ env.REMOTE_USER }}
           SSH_KEY: ${{ secrets.SSH_KEY }} 
       - name: List home directory
-        run:
+        run: |
             ssh ec2 'cd /home/ubuntu/django-on-docker'
             ssh ec2 'ls -la'
