@@ -102,7 +102,7 @@ WSGI_APPLICATION = 'ec2p1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'es2p1.sqlite3',
+        'NAME': BASE_DIR / 'db/es2p1.sqlite3',
     }
 }
 

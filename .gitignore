@@ -217,3 +217,5 @@ ENV/
 *.sqlite3
 /staticfiles/
 /mediafiles/
+/db/*
+!/db/README.md

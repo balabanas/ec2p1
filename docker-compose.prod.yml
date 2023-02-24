@@ -16,7 +16,7 @@ services:
       - proxy
     restart: always
     volumes:
-      - ../db:.
+      - ../db:/db
 
 networks:
   proxy:
