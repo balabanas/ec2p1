@@ -6,7 +6,7 @@ on:
 
 env:
   REMOTE_HOST: 13.51.239.74
-  SSH_USER: ubuntu
+  REMOTE_USER: ubuntu
 
 permissions:
   contents: read
