@@ -25,7 +25,7 @@ env = environ.Env(
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-if not environ.Env.read_env(os.path.join(BASE_DIR, '.env_prod')):
+if not environ.Env.read_env(os.path.join(BASE_DIR, '../.env_ec2p1_prod')):
     environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
