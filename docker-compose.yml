@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    image: ec2p1-app-image
+    container_name: ec2p1-app-cont
+    command: python manage.py runserver 0.0.0.0:8000
+#    volumes:
+#      - ./app/:/usr/src/app/
+    ports:
+      - 8000:8000
