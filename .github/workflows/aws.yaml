@@ -4,6 +4,10 @@ on:
   push:
     branches: [ "main" ]
 
+env:
+  REMOTE_HOST: 13.51.239.74
+  SSH_USER: ubuntu
+
 permissions:
   contents: read
   id-token: write
@@ -17,6 +21,11 @@ jobs:
         uses: actions/checkout@v3
         
       - name: Configure SSH
+        env:
+          SSH_HOST: ${{ env.REMOTE_HOST }}
+          SSH_USER: ${{ env.REMOTE_USER }}
+          SSH_KEY: ${{ secrets.SSH_KEY }} 
+        
         run: |
           mkdir -p ~/.ssh/
           echo "$SSH_KEY" > ~/.ssh/github-actions-key
@@ -28,10 +37,7 @@ jobs:
             IdentityFile ~/.ssh/github-actions-key
             StrictHostKeyChecking no
           END
-        env:
-          SSH_HOST: ${{ env.REMOTE_HOST }}
-          SSH_USER: ${{ env.REMOTE_USER }}
-          SSH_KEY: ${{ secrets.SSH_KEY }} 
+
           
 #       - name: Push repo to the remote
 #         run: |
