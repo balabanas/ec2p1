@@ -8,18 +8,13 @@ services:
     image: ec2p1-app-image
     container_name: ec2p1-app-cont
     command: gunicorn ec2p1.wsgi:application --bind 0.0.0.0:80
-#    volumes:
-#      - ./app/:/usr/src/app/
     expose:
       - 80
     env_file:
       - ../.env_ec2p1_prod
     networks:
       - proxy
-
-#volumes:
-#  static_volume:
-#  media_volume:
+    restart: always
 
 networks:
   proxy:
