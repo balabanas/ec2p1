@@ -8,6 +8,7 @@ env:
   AWS_REGION: eu-north-1
   REMOTE_HOST: 13.51.239.74
   REMOTE_USER: ubuntu
+  PROJECT: ec2p1
 
 permissions:
   contents: read
@@ -38,7 +39,7 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }} 
       - name: Push repo to the remote
         run: |
-          ssh ec2 'rm -r /home/ubuntu/ec2p1/*'
+          ssh ec2 'rm -r /home/ubuntu/${{ PROJECT }}/*'
           scp -r $(pwd)/* ec2:/home/ubuntu/ec2p1
       - name: Rebuild container and run
         run:  ssh ec2 'docker-compose -f /home/ubuntu/ec2p1/docker-compose.prod.yml up -d --build'
