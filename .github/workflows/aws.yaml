@@ -35,10 +35,10 @@ jobs:
           END
 
           
-#       - name: Push repo to the remote
-#         run: |
-#           ssh ec2 'rm -r /home/${{ vars.REMOTE_USER }}/${{ vars.PROJECT }}/*'
-#           scp -r $(pwd)/* ec2:/home/ubuntu/ec2p1
+      - name: Push repo to the remote
+        run: |
+          ssh ec2 'rm -r /home/${{ vars.REMOTE_USER }}/${{ vars.PROJECT }}/*'
+          scp -r $(pwd)/* ec2:/home/${{ vars.REMOTE_USER }}/${{ vars.PROJECT }}
           
       - name: Rebuild container and run
-        run:  ssh ec2 'docker-compose -f /home/ubuntu/ec2p1/docker-compose.prod.yml up -d --build'
+        run:  ssh ec2 'docker-compose -f /home/${{ vars.REMOTE_USER }}/${{ vars.PROJECT }}/docker-compose.prod.yml up -d --build'
