@@ -37,7 +37,7 @@ jobs:
           
       - name: Push repo to the remote
         run: |
-          ssh ec2 'rm -r /home/${{ vars.REMOTE_USER }}/${{ vars.PROJECT }}/*'
+          ssh ec2 'rm -rf /home/${{ vars.REMOTE_USER }}/${{ vars.PROJECT }}/*'
           scp -r $(pwd)/* ec2:/home/${{ vars.REMOTE_USER }}/${{ vars.PROJECT }}
           
       - name: Rebuild container and run
