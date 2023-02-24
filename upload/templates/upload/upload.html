@@ -1,6 +1,6 @@
 {% block content %}
 
-<h1>Blah: {{ mhost }}. Debug? {{ debug }}</h1>
+<h1>EC2P1 project Updated {{ mhost }}. Debug? {{ debug }}</h1>
 
   <form action="{% url "upload" %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
