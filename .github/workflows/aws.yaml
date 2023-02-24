@@ -30,7 +30,7 @@ jobs:
           END
         env:
           SSH_HOST: ${{ env.REMOTE_HOST }}
-          SSH_USER: ${{ secrets.REMOTE_USER }}
+          SSH_USER: ${{ env.REMOTE_USER }}
           SSH_KEY: ${{ secrets.SSH_KEY }} 
           
 #       - name: Push repo to the remote
