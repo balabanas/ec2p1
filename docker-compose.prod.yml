@@ -16,7 +16,7 @@ services:
       - proxy
     restart: always
     volumes:
-      - ../db:/db
+      - /home/ubuntu/db:/home/app/web/db
 
 networks:
   proxy:
