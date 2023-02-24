@@ -29,14 +29,14 @@ jobs:
             StrictHostKeyChecking no
           END
         env:
-          SSH_HOST: ${{ variables.REMOTE_HOST }}
+          SSH_HOST: ${{ env.REMOTE_HOST }}
           SSH_USER: ${{ secrets.REMOTE_USER }}
           SSH_KEY: ${{ secrets.SSH_KEY }} 
           
       - name: Push repo to the remote
         run: |
-          ssh ec2 'rm -r /home/${{ secrets.REMOTE_USER }}/${{ variables.PROJECT }}/*'
-          scp -r $(pwd)/* ec2:/home/${{ secrets.REMOTE_USER }}/${{ variables.PROJECT }}
+          ssh ec2 'rm -r /home/${{ secrets.REMOTE_USER }}/${{ env.PROJECT }}/*'
+          scp -r $(pwd)/* ec2:/home/${{ secrets.REMOTE_USER }}/${{ env.PROJECT }}
           
       - name: Rebuild container and run
-        run:  ssh ec2 'docker-compose -f /home/${{ secrets.REMOTE_USER }}/${{ variables.PROJECT }}/docker-compose.prod.yml up -d --build'
+        run:  ssh ec2 'docker-compose -f /home/${{ secrets.REMOTE_USER }}/${{ env.PROJECT }}/docker-compose.prod.yml up -d --build'
