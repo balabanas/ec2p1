@@ -38,7 +38,7 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }} 
       - name: Push repo to the remote
         run: |
-          ssh ec2 'rm -r /home/ubuntu/ec2p2/*'
+          ssh ec2 'rm -r /home/ubuntu/ec2p1/*'
           scp -r $(pwd)/* ec2:/home/ubuntu/ec2p1
       - name: Rebuild container and run
         run:  ssh ec2 'docker-compose -f /home/ubuntu/ec2p1/docker-compose.prod.yml up -d --build'
