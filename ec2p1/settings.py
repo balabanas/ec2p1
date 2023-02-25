@@ -166,6 +166,8 @@ if USE_S3:
     DEFAULT_FILE_STORAGE = 'ec2p1.storage_backends.PublicMediaStorage'
 
     # s3 private media settings
+    AWS_S3_REGION_NAME = env('AWS_S3_REGION_NAME')
+    AWS_S3_SIGNATURE_VERSION = env('AWS_S3_SIGNATURE_VERSION')
     PRIVATE_MEDIA_LOCATION = 'private'
     PRIVATE_FILE_STORAGE = 'hello_django.storage_backends.PrivateMediaStorage'
 
