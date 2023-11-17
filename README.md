@@ -1,4 +1,4 @@
-# Simple Django project to demonstrate CI/CD pipeline with AWS
+# Simple Django project to demonstrate CI/CD pipeline with AWS -
 
 - AWS-related:
   - EC2
